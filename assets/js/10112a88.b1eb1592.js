@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstoic_cat=self.webpackChunkstoic_cat||[]).push([[2866],{5745:s=>{s.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
