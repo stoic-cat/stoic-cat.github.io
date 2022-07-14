@@ -10,6 +10,7 @@ What I'm busy or want to be busy with.
 
 ## Want to do but have no time for
 
+- Set up openwrt, continue working on my homelab
 - Lockpicking
 - Crocheting
 - Also reading books
