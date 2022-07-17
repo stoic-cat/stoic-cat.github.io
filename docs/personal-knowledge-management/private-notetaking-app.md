@@ -36,7 +36,7 @@ Don't know enough about it yet. Will have to test. To check if backlinks is supp
 
 ## Joplin
 
-Don't know enough about it yet. Will have to test. To check if backlinks is supported.
+Evernote alternative. Don't know enough about it yet. Will have to test. To check if backlinks is supported.
 
 ## Obsidian
 
