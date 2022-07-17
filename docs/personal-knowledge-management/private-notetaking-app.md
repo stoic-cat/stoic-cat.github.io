@@ -6,7 +6,7 @@ Choosing the ideal private notetaking app based on the following requirements.
 
 - [Future proof](https://sive.rs/plaintext
 ); Must be in plain text and an open format. e.g. Markdown
-- If in Markdown, must be as close to standard Markdown as possible so that it renders well regardless of md viewer
+- If in Markdown, must be as close to standard Markdown as possible so that it renders well regardless of md viewer/app. Reduces friction of moving to a different app if required.
 - Definitely no lock in of data
 - Supports Linux
 - Free. Preferrably open source
