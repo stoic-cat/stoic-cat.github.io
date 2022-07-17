@@ -1,6 +1,6 @@
 # Go testing
 
-All Go tests need to be in files ending with `_test.go`. Run `go help testflag` to see full list of all test flags available
+All Go tests need to be in files ending with `_test.go`. Run `go help testflag` to see full list of all test flags available.
 
 ## Simple test function example
 They all start with `Test`.
@@ -44,33 +44,6 @@ func TestHello(t *testing.T) {
 }
 ```
 
-## [Example function](https://go.dev/blog/examples)
-They all start with `Example`. Leaving out `// Output: <value>` results in the function being compiled but not executed. Code example will appear in `godoc`, improving readability of documentation. [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/integers#examples) has a great section explaining example test functions. Run `go test -v` to see the output of the example functions.
-
-```go showLineNumbers
-func ExampleAdd() {
-	sum := Add(1, 5)
-	fmt.Println(sum)
-	// Output: 6
-}
-```
-
-## [Benchmarking](https://pkg.go.dev/testing#hdr-Benchmarks)
-
-They all start with `Benchmark`. Replace `Repeat("a")` with whatever you want to benchmark. [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/iteration#benchmarking) has yet another great section explaining benchmarking. Run `go test -bench=.` to run the benchmarks.
-
-```go showLineNumbers
-func BenchmarkRepeat(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		Repeat("a")
-	}
-}
-```
-
-## [Test coverage](https://go.dev/blog/cover)
-
-Run `go test -cover` to check the coverage of your code.
-
 ## [Table Driven Tests](https://github.com/golang/go/wiki/TableDrivenTests)
 
 Run the same tests with different inputs and expected outputs by using an array/a slice of struct containing input and expected output, then looping through them. Great example [here](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/structs-methods-and-interfaces#further-refactoring) with this important section:  
@@ -95,6 +68,35 @@ func TestArea(t *testing.T) {
 				t.Errorf("%#v got %.2f, wanted %.2f", tt.name, tt.shape.area(), tt.hasArea)
 			}
 		})
+	}
+}
+```
+
+## Test Related
+
+### [Test coverage](https://go.dev/blog/cover)
+
+Run `go test -cover` to check the coverage of your code.
+
+### [Examples](https://go.dev/blog/examples)
+They all start with `Example`. Leaving out `// Output: <value>` results in the function being compiled but not executed. Code example will appear in `godoc`, improving readability of documentation. [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/integers#examples) has a great section explaining example test functions. Run `go test -v` to see the output of the example functions.
+
+```go showLineNumbers
+func ExampleAdd() {
+	sum := Add(1, 5)
+	fmt.Println(sum)
+	// Output: 6
+}
+```
+
+### [Benchmarking](https://pkg.go.dev/testing#hdr-Benchmarks)
+
+They all start with `Benchmark`. Replace `Repeat("a")` with whatever you want to benchmark. [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/iteration#benchmarking) has yet another great section explaining benchmarking. Run `go test -bench=.` to run the benchmarks.
+
+```go showLineNumbers
+func BenchmarkRepeat(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		Repeat("a")
 	}
 }
 ```
