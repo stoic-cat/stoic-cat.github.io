@@ -167,6 +167,23 @@ wallet_test.go:38:18:   wallet.Withdraw(Bitcoin(10))
 
 [This section from Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors#unchecked-errors) explains it much better than me.
 
+### Error Constants
+
+Lifted from [here](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/maps#refactor-3).
+
+```go showLineNumbers
+const (
+	ErrNotFound   = DictionaryErr("could not find the word you were looking for")
+	ErrWordExists = DictionaryErr("cannot add word because it already exists")
+)
+
+type DictionaryErr string
+
+func (e DictionaryErr) Error() string {
+	return string(e)
+}
+```
+
 ## Test Related
 
 ### Test coverage
