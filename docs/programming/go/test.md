@@ -72,11 +72,107 @@ func TestArea(t *testing.T) {
 }
 ```
 
+## Test for Errors
+
+### Error checking
+
+General tips
+
+- When testing a function that may return an error, write test cases that check for scenarios when it returns `nil`, and when it returns an `error`.
+- If a test returns an `error`, check against the `error` instead of the `string` message of the error. E.g. the first option below is much better than the second option.  
+
+The below is **good**.
+
+```go showLineNumbers
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
+
+func (w *Wallet) Withdraw(b Bitcoin) error {
+	if b > w.balance {
+		return ErrInsufficientFunds
+	}
+	w.balance -= b
+	return nil
+}
+
+func TestWallet(t *testing.T) {
+	assertError := func(t testing.TB, got, want error) {
+		t.Helper()
+		if got == nil {
+			t.Fatal("wanted an error but didn't get one")
+		}
+		if got != want {
+			t.Errorf("got %q, wanted %q", got, want)
+		}
+	}
+
+	t.Run("withdraw insufficient funds", func(t *testing.T) {
+		startingBalance := Bitcoin(20)
+		wallet := Wallet{startingBalance}
+		err := wallet.Withdraw(Bitcoin(100))
+
+		assertError(t, err, ErrInsufficientFunds)
+		assertBalance(t, wallet, startingBalance)
+	})
+}
+```
+
+The below is **bad** because we are hardcoding the Error return string and the test will break if we reword the error (See [here](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors#refactor-3) for more details)
+
+```go showLineNumbers
+func (w *Wallet) Withdraw(b Bitcoin) error {
+	if b > w.balance {
+		return errors.New("cannot withdraw, insufficient funds")
+	}
+	w.balance -= b
+	return nil
+}
+
+func TestWallet(t *testing.T) {
+	assertError := func(t testing.TB, got error, want string) {
+		t.Helper()
+		if got == nil {
+			t.Fatal("wanted an error but didn't get one")
+		}
+		if got.Error() != want {
+			t.Errorf("got %q, wanted %q", got, want)
+		}
+	}
+
+	t.Run("withdraw insufficient funds", func(t *testing.T) {
+		startingBalance := Bitcoin(20)
+		wallet := Wallet{startingBalance}
+		err := wallet.Withdraw(Bitcoin(100))
+
+		assertError(t, err, "cannot withdraw, insufficient funds")
+		assertBalance(t, wallet, startingBalance)
+	})
+}
+```
+
+### [Unchecked Error Handling](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors#unchecked-errors)
+
+When writing tests to check for error handling, it is easy to miss out any logic flow (e.g. when something is supposed to return an error, or when something is not supposed to return an error).  
+To help find error handling flows that might have been missed, use `errcheck` to check for missing/untested error handling.
+
+```bash
+go install github.com/kisielk/errcheck@latest
+errcheck .
+```
+
+Logic flow that get flagged out will look something like this. This means line 38 is not checking the error being returned.
+
+```go showLineNumbers
+wallet_test.go:38:18:   wallet.Withdraw(Bitcoin(10))
+```
+
+[This section from Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/pointers-and-errors#unchecked-errors) explains it much better than me.
+
 ## Test Related
 
-### [Test coverage](https://go.dev/blog/cover)
+### Test coverage
 
-Run `go test -cover` to check the coverage of your code.
+- Run `go test -cover` to check the [coverage](https://go.dev/blog/cover) of your code.
+- Refer to [Unchecked error handling](#unchecked-error-handling) on how to lint for missing test coverage for error handling.
 
 ### [Examples](https://go.dev/blog/examples)
 They all start with `Example`. Leaving out `// Output: <value>` results in the function being compiled but not executed. Code example will appear in `godoc`, improving readability of documentation. [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/integers#examples) has a great section explaining example test functions. Run `go test -v` to see the output of the example functions.
