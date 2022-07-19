@@ -10,3 +10,5 @@ Currently going through [Learn Go with Tests](https://quii.gitbook.io/learn-go-w
 
 - [Learn Go with Tests](https://quii.gitbook.io/learn-go-with-tests/)
 - [Gophercises](https://piped.kavin.rocks/watch?v=s1wC1IvwvxE&list=PLVEltXlEeWglGINo25GxVfvSSylLVg4r1&index=1)
+- [Gopher reading list](https://github.com/enocom/gopher-reading-list)
+- [Don’t just check errors, handle them gracefully](https://dave.cheney.net/2016/04/27/dont-just-check-errors-handle-them-gracefully)
