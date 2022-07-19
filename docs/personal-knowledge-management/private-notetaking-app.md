@@ -32,11 +32,15 @@ Hierarchical. Don't know enough about it yet. Will have to test. To check if bac
 
 ## Zettlr
 
-Don't know enough about it yet. Will have to test. To check if backlinks is supported.
+Stores as markdown format in a workspace (directory). Comes with dark mode option by default. Merges both raw and md preview into the same page instead of rendering it side by side. Easy export features to multiple formats (html, pdf etc) similar to pandoc. So far looks better than Joplin for my requirements. No android app. Moving between folders is clunky. Moving files between folders require the usage of an external app. No option to do so in Zettlr itself. To test:
+
+- tagging
+- search between folders
+- organizing
 
 ## Joplin
 
-Evernote alternative. Don't know enough about it yet. Will have to test. To check if backlinks is supported.
+Evernote alternative. Does not actually store as markdown format. Need to use import/export feature for markdown files. Default backup format is JEX format (Joplin Export file). Editing in external editor is a pain. Does not come with dark mode by default. A couple of minus points but so far nothing too much of a deal breaker to make it a pass for me. Biggest pain would be to customize/specify location of notebook(s) so that it can be synced with Syncthing. Has android app.
 
 ## Obsidian
 
