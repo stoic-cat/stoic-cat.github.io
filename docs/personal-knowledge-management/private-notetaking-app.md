@@ -28,7 +28,7 @@ At first glance, it seems like I have hit the jackpot with Logseq as it is open 
 
 ## Trilium
 
-Hierarchical. Don't know enough about it yet. Will have to test. To check if backlinks is supported.
+Hierarchical. Does not actually store as markdown format. Stores data in a database and need to use import/export feature for markdown files just like Joplin. Only able to modify it in WYSIWYG. Maintainer says [there are no plans to allow switching between raw md and WYSIWYG mode as Trilium is not meant to be a md editor](https://github.com/zadam/trilium/issues/2026#issuecomment-906657247). Would rather go with Joplin given that Trilium has more downsides comparatively.
 
 ## Zettlr
 
@@ -40,7 +40,7 @@ Stores as markdown format in a workspace (directory). Comes with dark mode optio
 
 ## Joplin
 
-Evernote alternative. Does not actually store as markdown format. Need to use import/export feature for markdown files. Default backup format is JEX format (Joplin Export file). Editing in external editor is a pain. Does not come with dark mode by default. A couple of minus points but so far nothing too much of a deal breaker to make it a pass for me. Biggest pain would be to customize/specify location of notebook(s) so that it can be synced with Syncthing. Has android app.
+Evernote alternative. Does not actually store as markdown format. Stores data in a database and need to use import/export feature for markdown files. Default backup format is JEX format (Joplin Export file). Editing in external editor is a pain. Does not come with dark mode by default. A couple of minus points but so far nothing too much of a deal breaker to make it a pass for me. Biggest pain would be to customize/specify location of notebook(s) so that it can be synced with Syncthing. Has android app.
 
 ## Obsidian
 
