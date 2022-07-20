@@ -49,3 +49,9 @@ So far it seems to tick all the checkboxes of what I need, except for the fact t
 ## Dendron
 
 Don't know enough about it yet. Will have to test. But downside is that it relies on a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=dendron.dendron). To check if all other options have deal breakers.
+
+## Links
+
+- [Zettlr – FOSS markdown editor for personal knowledge management and publishing](https://news.ycombinator.com/item?id=23723775) (Good discussion and links in comments)
+- [Johny Decimal System](https://johnnydecimal.com/)
+- [Show HN: Promnesia – an attempt to fix broken web history](https://news.ycombinator.com/item?id=23668507)
