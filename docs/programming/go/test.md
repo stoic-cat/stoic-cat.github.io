@@ -184,7 +184,7 @@ func (e DictionaryErr) Error() string {
 }
 ```
 
-### Dependency Injection and Mocking
+## Dependency Injection and Mocking
 
 As much as possible, functions should accept interfaces rather than concrete types. With that, it is possible to pass in different kinds of implementations including mocks to test the functionality.
 
