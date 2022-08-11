@@ -184,6 +184,40 @@ func (e DictionaryErr) Error() string {
 }
 ```
 
+### Dependency Injection and Mocking
+
+As much as possible, functions should accept interfaces rather than concrete types. With that, it is possible to pass in different kinds of implementations including mocks to test the functionality.
+
+The below shows an example where `Greet` takes in a `Writer` interface instead of printing to `stdout` which would be hard to test on. Using a `Writer` interface allows the function to return the output somewhere of choosing rather than only `stdout`.
+
+More info [here](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/dependency-injection).
+
+For mocking, see [here](https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/mocking) for how different implementations of interfaces are passed into functions when running the program for real vs when running tests.
+
+```go showLineNumbers
+func main() {
+	Greet(os.Stdout, "Elodie")
+}
+
+func Greet(writer io.Writer, name string) {
+	fmt.Fprintf(writer, "Hello, %s", name)
+}
+```
+
+```go showLineNumbers
+func TestGreet(t *testing.T) {
+	buffer := bytes.Buffer{}
+	Greet(&buffer, "Chris")
+
+	got := buffer.String()
+	want := "Hello, Chris"
+
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
+}
+```
+
 ## Test Related
 
 ### Test coverage
