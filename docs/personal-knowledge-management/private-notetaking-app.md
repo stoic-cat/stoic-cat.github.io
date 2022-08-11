@@ -4,8 +4,7 @@ Choosing the ideal private notetaking app based on the following requirements.
 
 ## Requirements
 
-- [Future proof](https://sive.rs/plaintext
-); Must be in plain text and an open format. e.g. Markdown
+- [Future proof](https://sive.rs/plaintext); Must be in plain text and an open format. e.g. Markdown
 - If in Markdown, must be as close to standard Markdown as possible so that it renders well regardless of md viewer/app. Reduces friction of moving to a different app if required.
 - Definitely no lock in of data
 - Supports Linux
@@ -21,6 +20,7 @@ Choosing the ideal private notetaking app based on the following requirements.
 - [Joplin](https://joplinapp.org/)
 - [Obsidian](https://obsidian.md/)
 - [Dendron](https://marketplace.visualstudio.com/items?itemName=dendron.dendron)
+- [Marktext](https://github.com/marktext/marktext)
 
 ## Logseq
 
@@ -49,6 +49,14 @@ So far it seems to tick all the checkboxes of what I need, except for the fact t
 ## Dendron
 
 Don't know enough about it yet. Will have to test. But downside is that it relies on a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=dendron.dendron). To check if all other options have deal breakers.
+
+## Marktext
+
+Literally an open source Markdown Editor that allows editing in both raw mode and preview mode. Fits almost exactly what I need. Very similar to Obsidian. Or rather, Obsidian is very similar to a regular md editor with a bit of extra features (and plugins from the community if you want to jack it up). Cross platform and available in mac, linux, windows, but not on android.
+
+## Verdict
+
+Went with Marktext.
 
 ## Links
 
