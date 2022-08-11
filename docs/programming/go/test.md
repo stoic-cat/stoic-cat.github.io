@@ -247,3 +247,7 @@ func BenchmarkRepeat(b *testing.B) {
 	}
 }
 ```
+
+### [Race Detector](https://go.dev/blog/race-detector)
+
+As simple as running `go test -race`.
