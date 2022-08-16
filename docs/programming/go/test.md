@@ -251,3 +251,16 @@ func BenchmarkRepeat(b *testing.B) {
 ### [Race Detector](https://go.dev/blog/race-detector)
 
 As simple as running `go test -race`.
+
+### [Go vet](https://medium.com/a-journey-with-go/go-vet-command-is-more-powerful-than-you-think-563e9fdec2f5)
+
+Go vet is a collection of tools for static analysis of Go programs. It helps check for suspicious and/or abnormal code that might cause subtle bugs in your program. It's as simple as running `go vet`.
+
+An example of how an output looks like:
+
+```bash showLineNumbers
+sync/v2/sync_test.go:16: call of assertCounter copies lock value: v1.Counter contains sync.Mutex
+sync/v2/sync_test.go:39: assertCounter passes lock by value: v1.Counter contains sync.Mutex
+```
+
+This is due to the fact that you would usually pass the reference to a mutex lock instead of passing the lock by value. There isn't really any reason to pass a mutex lock by value.
