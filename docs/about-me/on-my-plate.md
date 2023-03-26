@@ -13,8 +13,9 @@ What I'm busy or want to be busy with.
 
 ## Want to do but have no time for
 
-- Set up openwrt, continue working on my homelab
+- Buy router hardware, set up openwrt, continue working on my homelab
 - Learn many things, like
+    - Vim + tmux
     - assembly language
     - reverse engineering
     - WebAssembly
